@@ -1,18 +1,5 @@
 ---
-title: API Reference
-
-language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
-  - python
-  - javascript
-
-toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
-
-includes:
-  - errors
+title: Paywix API Reference
 
 search: true
 
@@ -21,221 +8,290 @@ code_clipboard: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Paywix is a lightweight SDK for payment processing for the python based applications, the package was initially supported only with the Django framework. In the new version, the package is supported by all python-based applications.
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+<aside class="warning">Paywix is not storing any data, so make sure all your data are stored in your table</aside>
 
-This example API documentation page was created with [Slate](https://github.com/slatedocs/slate). Feel free to edit it and use it as a base for your own API's documentation.
 
-# Authentication
+### Supported Payment Gateways
+  + Payu
 
-> To authorize, use this code:
+### Installation
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
+> To install use following command
 
 ```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+    pip install paywix
+    pipenv install paywix
 ```
+# Paywix with Payu
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
+### Setup Payu payment gateway
+  - Create an account with Payu
+    + [Create Merchant Account](https://www.payumoney.com/merchant-dashboard/)
+  - Copy the Merchant Key and Merchant Salt for integrating Payment gateway
+    + Make sure that the mode of the transaction is `test` , when you're testing
+  - Create a config file like follow.
+   
+> Make config file like this in your project root
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
+  PAYU_CONFIG = {
+        "merchant_key": "3o6jgxhp",
+        "merchant_salt": "67bAgZX1B3",
+        "mode": "test",
   }
+```
+
+# Payu Pawix with Django
+
+
+### Configure Django Projecct Settings(project/setting.py)
+
+> install `paywix` on INSTALLED_APPS 
+
+
+```python
+
+project/setting.py
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+
+    'checkout.apps.CheckoutConfig',
+    'paywix',
 ]
 ```
+> Make a config file with payu details on settings.py
 
-This endpoint retrieves all kittens.
+``` python
 
-### HTTP Request
+# PAYU Mandatory Config details
+# No specific schema, you can use any other methods
 
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+PAYU_CONFIG = {
+    "merchant_key": "******",
+    "merchant_salt": "******",
+    "mode": "test",
+    "success_url": "http://127.0.0.1:8000/success",
+    "failure_url": "http://127.0.0.1:8000/failure"
 }
 ```
 
-This endpoint retrieves a specific kitten.
+### Configure urls
+  - Create `success` and `failure` url in `checkout` app (change it with your needs)
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+### Configure template
 
-### HTTP Request
+Create a template file called `payu_checkout.html` is template is used get the data from checkout views(functionality) and redirect to `payu` payment gateway. 
 
-`GET http://example.com/kittens/<ID>`
+<aside class="warning">Don't change the structure for the HTML</aside>
 
-### URL Parameters
+> Configure Template [Make sure the template should be given format
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
+``` html
+templates/payu_checkout.html
+  <html>
+  <head>
+      <title>Loading...</title>
+  </head>
 
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
+  <body onload="document.payuForm.submit()">
+      <form action={{ posted.action }} method="post" name="payuForm">
+          <input type="hidden" name="key" value="{{posted.key}}" />
+          <input type="hidden" name="hash_string" value="{{ posted.hash_string }}" />
+          <input type="hidden" name="hash" value="{{ posted.hashh }}" />
+          <input type="hidden" name="posted" value="{{ posted }}" />
+          <input type="hidden" name="txnid" value="{{ posted.txnid }}" />
+          <input type="hidden" name="amount" value="{{ posted.amount|default:'' }}" /></td>
+          <input type="hidden" name="firstname" id="firstname" value="{{ posted.firstname|default:'' }}" /></td>
+          <input type="hidden" name="email" id="email" value="{{ posted.email|default:'' }}" /></td>
+          <input type="hidden" name="phone" value="{{ posted.phone|default:'' }}" /></td>
+          <textarea type="hidden" name="productinfo" style="display:none;">{{ posted.productinfo|default:'' }}</textarea>
+          </td>
+          <input type="hidden" name="surl" value="{{ posted.surl }}" size="64" /></td>
+          <input type="hidden" name="furl" value="{{ posted.furl }}" size="64" /></td>
+          <input type="hidden" name="service_provider" value="{{posted.service_provider}}" size="64" />
+          <input type="hidden" name="lastname" id="lastname" value="{{ posted.lastname }}" /></td>
+          <input type="hidden" name="address1" value="{{ posted.address1 }}" /></td>
+          <input type="hidden" name="address2" value="{{ posted.address2 }}" /></td>
+          <input type="hidden" name="city" value="{{ posted.city }}" /></td>
+          <input type="hidden" name="state" value="{{ posted.state }}" /></td>
+          <input type="hidden" name="country" value="{{ posted.country }}" /></td>
+          <input type="hidden" name="zipcode" value="{{ posted.zipcode }}" /></td>
+          <input type="hidden" name="udf1" value="{{ posted.udf1 }}" /></td>
+          <input type="hidden" name="udf2" value="{{ posted.udf2 }}" /></td>
+          <input type="hidden" name="udf3" value="{{ posted.udf3 }}" /></td>
+          <input type="hidden" name="udf4" value="{{ posted.udf4 }}" /></td>
+          <input type="hidden" name="udf5" value="{{ posted.udf5 }}" /></td>
+      </form>
+  </body>
+  </html>
 ```
+
+### Configure Payu in views(checkout)
+
+The given views is a example intreation, you have to make changes as per your needs, consider this as sample view. when the customer click the checkout function, redirect to given function then we have to make the `data` as per the given format, make sure you have included all the mandatory params.
+
+<aside class="warning">Please ensure that all the data stored in appropriate tables</aside>
+
+> Consider the this as sample views
+
+``` python
+checkout/views.py
+
+from django.views.decorators.csrf import csrf_exempt
+from django.conf import settings
+from django.contrib.auth.decorators import login_required
+
+# Import Payu from Paywix
+from paywix.payu import Payu
+
+payu_config = settings.PAYU_CONFIG
+merchant_key = payu_config.get('merchant_key')
+merchant_salt = payu_config.get('merchant_salt')
+surl = payu_config.get('success_url')
+furl = payu_config.get('failure_url')
+mode = payu_config.get('mode')
+
+# Create Payu Object for making transaction
+# The given arguments are mandatory
+payu = Payu(merchant_key, merchant_salt, surl, furl, mode)
+
+
+# Payu checkout page
+@csrf_exempt
+@login_required
+def payu_checkout(request):
+    if request.method == 'POST':
+        # Making Checkout form into dictionary
+        data = {k: v[0] for k, v in dict(request.POST).items()}
+        data.pop('csrfmiddlewaretoken')
+        # The dictionary data  should be contains following details
+        # data = { 'amount': '10', 
+        #     'firstname': 'renjith', 
+        #     'email': 'renjithsraj@gmail.com',
+        #     'phone': '9746272610', 'productinfo': 'test', 
+        #     'lastname': 'test', 'address1': 'test', 
+        #     'address2': 'test', 'city': 'test', 
+        #     'state': 'test', 'country': 'test', 
+        #     'zipcode': 'tes', 'udf1': '', 
+        #     'udf2': '', 'udf3': '', 'udf4': '', 'udf5': ''
+        # }
+
+        # No Transactio ID's, Create new with paywix, it's not mandatory
+        # Create your own
+        # Create transaction Id with payu and verify with table it's not existed
+        txnid = "Create your transaction id"
+        data.update({"txnid": txnid})
+        payu_data = payu.transaction(**data)
+        return render(request, 'payu_checkout.html', {"posted": payu_data})
+```
+
+### Configure Success & Failure urls
+
+URL | Description
+--------- | -----------
+success | To handle successfull transactions
+failure | To handle un-successfull transactions
+
+#### Success Views
+
+<aside class="warning">Please ensure that all the data stored in appropriate tables</aside>
+
+> Consider the this as sample views
+
+``` python
+# Payu success return page
+@csrf_exempt
+def payu_success(request):
+    data = {k: v[0] for k, v in dict(request.POST).items()}
+    response = payu.verify_transaction(data)
+    return JsonResponse(response)
+```
+
+<aside class="warning">Please ensure that all the data stored in appropriate tables</aside>
+
+> Consider the this as sample views
+
+#### Failure Views
+
+``` python
+# Payu failure page
+@csrf_exempt
+def payu_failure(request):
+    data = {k: v[0] for k, v in dict(request.POST).items()}
+    response = payu.verify_transaction(data)
+    return JsonResponse(response)
+```
+
+
+### Payu include follows
+
++ `Payu()` --> Initialize with following arguments
+
+  + `merchant_key`  - Mercahnt Key from Payu merchant Dashboard
+  + `merchant_salt` - Mercahnt Salt from Payu merchant Dashboard
+  + `surl`          - After successfull transaction where to redirect
+  + `furl` - After failured transactoin where to redirect
+  + `mode` - Transaction mode(test/live)
+
++ `payu.generate_txnid()` -> Not mandatory
+  + This methods is used to generate transaction id's, make sure that the returnd id always unique, so you have to validate with your transaction table(Important)
+  + This is not manadatory function, if you need you can use it.
+  + `prefix` -> While generate the transaction id's if you required some thing like `tmk_` in the prefix of txnid, then you can include this arg
+  + `limit`-> length of the transaction id's -> default - 20
+
++ `payu.transaction(**data)`
+
+  The method will processed data for making transaction, we have to pass data as kwargs. Once the function processd the data, will contains the hash values, hashstring etc. you can logging once you start digging.
+
+> sample for `payu.transaction(**data)`
 
 ```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
+   data = {
+     'amount': '10', 
+     'firstname': 'renjith', 
+     'email': 'renjithsraj@gmail.com',
+     'phone': '9746272610', 'productinfo': 'test', 
+     'lastname': 'test', 'address1': 'test', 
+     'address2': 'test', 'city': 'test', 
+     'state': 'test', 'country': 'test', 
+     'zipcode': 'tes', 'udf1': '', 
+     'udf2': '', 'udf3': '', 'udf4': '', 'udf5': ''
+  }
+  data.update({'txnid': "xyz"})
+  posted_data = payu.transaction(**data)
 ```
 
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
++ `payu.verify_transaction()`
+  + This function is used to verify the transaction(verify the response data from payu)
+  + The function will create the hash value with transaction data and verify with payu response hash value, if it's True, Then transaction is successfully done.
+
+> sample for `payu.verify_transaction(data)`
+
+```python
+  data = {k: v[0] for k, v in dict(request.POST).items()}
+  response = payu.verify_transaction(data)
 ```
 
-```javascript
-const kittn = require('kittn');
+> response for `payu.verify_transaction(data)`
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
+``` javascript
+     {"return_data": {"isConsentPayment": "0", "mihpayid": "250403759", "mode": "", "status": "failure", "unmappedstatus": "userCancelled", "key": "3o6jgxhp", "txnid": "tmk f23b118be0500854f90d", "amount": "10.00", "addedon": "2020-07-27 14:00:40", "productinfo": "test", "firstname": "renjith", "lastname": "", "address1": "dsf", "address2": "fsdf", "city": "sdf", "state": "", "country": "", "zipcode": "342341", "email": "renjith", "phone": "9746272610", "udf1": "", "udf2": "", "udf3": "", "udf4": "", "udf5": "", "udf6": "", "udf7": "", "udf8": "", "udf9": "", "udf10": "", "hash": "cdb80b5e3973fb048782152aa8b5a5fd9d58915578fec92cbd55780bc36821fb90f7741a251c01724903ea7ccc3c5fa3f5b16d4aa4255c62f3d4da707d357265", "field1": "", "field2": "", "field3": "", "field4": "", "field5": "", "field6": "", "field7": "", "field8": "", "field9": "Cancelled by user", "PG_TYPE": "PAISA", "bank_ref_num": "250403759", "bankcode": "PAYUW", "error": "E000", "error_Message": "No Error", "payuMoneyId": "250403759"}, "hash_string": "67bAgZX1B3|failure|||||||||||renjith|renjith|test|10.00|tmk f23b118be0500854f90d|3o6jgxhp", "generated_hash": "cdb80b5e3973fb048782152aa8b5a5fd9d58915578fec92cbd55780bc36821fb90f7741a251c01724903ea7ccc3c5fa3f5b16d4aa4255c62f3d4da707d357265", "recived_hash": "cdb80b5e3973fb048782152aa8b5a5fd9d58915578fec92cbd55780bc36821fb90f7741a251c01724903ea7ccc3c5fa3f5b16d4aa4255c62f3d4da707d357265", "hash_verified": true}
+
 ```
 
-> The above command returns JSON structured like this:
+### Note
 
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
++ Paywix is not storing any data into Table
++ Make sure the Transaction Data is stored into Table before making transaction.
++ When the transaction got sucees/faild, make sure that the data also stored in somewhere in db
 
-This endpoint deletes a specific kitten.
 
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
 
