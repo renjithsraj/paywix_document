@@ -343,6 +343,24 @@
                     <a href="#payu-include-follows" class="toc-h2 toc-link" data-title="Payu include follows">Payu include follows</a>
                   </li>
                   <li>
+                    <a href="#api-reference" class="toc-h2 toc-link" data-title="API Reference">API Reference</a>
+                  </li>
+                  <li>
+                    <a href="#get-payment-response" class="toc-h2 toc-link" data-title="Get Payment Response">Get Payment Response</a>
+                  </li>
+                  <li>
+                    <a href="#check-merchant-transaction-status" class="toc-h2 toc-link" data-title="Check Merchant Transaction Status">Check Merchant Transaction Status</a>
+                  </li>
+                  <li>
+                    <a href="#refund-payment-api" class="toc-h2 toc-link" data-title="Refund Payment API">Refund Payment API</a>
+                  </li>
+                  <li>
+                    <a href="#get-refund-details-by-refund-id" class="toc-h2 toc-link" data-title="Get Refund Details by Refund Id">Get Refund Details by Refund Id</a>
+                  </li>
+                  <li>
+                    <a href="#get-refund-details-by-payment-id" class="toc-h2 toc-link" data-title="Get Refund Details by Payment Id">Get Refund Details by Payment Id</a>
+                  </li>
+                  <li>
                     <a href="#note" class="toc-h2 toc-link" data-title="Note">Note</a>
                   </li>
               </ul>
@@ -628,7 +646,284 @@
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code>     <span class="p">{</span><span class="dl">"</span><span class="s2">return_data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span><span class="dl">"</span><span class="s2">isConsentPayment</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">mihpayid</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">250403759</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">mode</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span> <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">failure</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">unmappedstatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">userCancelled</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">key</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3o6jgxhp</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">txnid</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">tmk f23b118be0500854f90d</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10.00</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">addedon</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2020-07-27 14:00:40</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">productinfo</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">test</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">firstname</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">renjith</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">lastname</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span> <span class="dl">"</span><span class="s2">address1</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">dsf</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">address2</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">fsdf</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">city</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">sdf</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">state</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span> <span class="dl">"</span><span class="s2">country</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span> <span class="dl">"</span><span class="s2">zipcode</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">342341</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">email</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">renjith</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">phone</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">9746272610</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">udf1</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span> <span class="dl">"</span><span class="s2">udf2</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span> <span class="dl">"</span><span class="s2">udf3</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span> <span class="dl">"</span><span class="s2">udf4</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span> <span class="dl">"</span><span class="s2">udf5</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span> <span class="dl">"</span><span class="s2">udf6</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span> <span class="dl">"</span><span class="s2">udf7</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span> <span class="dl">"</span><span class="s2">udf8</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span> <span class="dl">"</span><span class="s2">udf9</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span> <span class="dl">"</span><span class="s2">udf10</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span> <span class="dl">"</span><span class="s2">hash</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">cdb80b5e3973fb048782152aa8b5a5fd9d58915578fec92cbd55780bc36821fb90f7741a251c01724903ea7ccc3c5fa3f5b16d4aa4255c62f3d4da707d357265</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">field1</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span> <span class="dl">"</span><span class="s2">field2</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span> <span class="dl">"</span><span class="s2">field3</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span> <span class="dl">"</span><span class="s2">field4</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span> <span class="dl">"</span><span class="s2">field5</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span> <span class="dl">"</span><span class="s2">field6</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span> <span class="dl">"</span><span class="s2">field7</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span> <span class="dl">"</span><span class="s2">field8</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span> <span class="dl">"</span><span class="s2">field9</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Cancelled by user</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">PG_TYPE</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">PAISA</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">bank_ref_num</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">250403759</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">bankcode</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">PAYUW</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">E000</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">error_Message</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">No Error</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">payuMoneyId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">250403759</span><span class="dl">"</span><span class="p">},</span> <span class="dl">"</span><span class="s2">hash_string</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">67bAgZX1B3|failure|||||||||||renjith|renjith|test|10.00|tmk f23b118be0500854f90d|3o6jgxhp</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">generated_hash</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">cdb80b5e3973fb048782152aa8b5a5fd9d58915578fec92cbd55780bc36821fb90f7741a251c01724903ea7ccc3c5fa3f5b16d4aa4255c62f3d4da707d357265</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">recived_hash</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">cdb80b5e3973fb048782152aa8b5a5fd9d58915578fec92cbd55780bc36821fb90f7741a251c01724903ea7ccc3c5fa3f5b16d4aa4255c62f3d4da707d357265</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">hash_verified</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">}</span>
 
-</code></pre></div><h3 id='note'>Note</h3>
+</code></pre></div><h3 id='api-reference'>API Reference</h3>
+<p>If you want to use API services for the Payu, you have to include the <code>auth_header</code> in the <code>Payu(auth_header=&quot;&quot;)</code> class, default value is <code>None</code>, </p>
+<h3 id='get-payment-response'>Get Payment Response</h3>
+<p>This API can be used by the merchant to get the response details of the transaction(s) done using PayUmoney.</p>
+
+<table><thead>
+<tr>
+<th>ID</th>
+<th>PARAM</th>
+<th>Description</th>
+<th>type</th>
+<th>mandatory</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>required_data</td>
+<td>Mandataory Details {&quot;ids&quot;: <merchant transaction ids>(list)}</td>
+<td>dict</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>2</td>
+<td>optionals</td>
+<td>optionals data <code>{&quot;from_date&quot;:, &quot;to_date&quot;:, &quot;count&quot;:}</code></td>
+<td>dict</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Sample for Getpayment response function</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="n">payment_Resp</span> <span class="o">=</span> <span class="n">payu</span><span class="p">.</span><span class="n">getPaymentResponse</span><span class="p">({</span><span class="s">"ids"</span><span class="p">:</span> <span class="p">[</span><span class="s">'172b0970-d073-11ea-8a7c-f0189853078a'</span><span class="p">]})</span>
+</code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All txnIds are valid"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"responseCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"merchantTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"396132-58876806"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"postBackParam"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"addedon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-26T15:22:05.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"additionalCharges"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6.1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"additional_param"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"amount_split"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">PAYU</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">106.1</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"bank_ref_num"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1182885976"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"bankcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MAST"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"calledStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cardToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"card_merchant_param"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"card_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cardhash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This field is no longer supported in postback params."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cardnum"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500446XXXXXX0000"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"createdOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1493200111000"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"discount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@email.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"encryptedPaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E000"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"error_Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No Error"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"fetchAPI"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"field1"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"field2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"field3"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"field4"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"field5"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"field6"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"field7"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"field8"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"field9"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom Jude"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9a5e632d332c11eb74f8a76ba3dcccd0548f1f26a73bc2541f85198a3cf0eb948ad8caff6b0921ae9a11aa7648c70f0a87ac29d09790ba2f1c31d48823ba9a85"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"40747T"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"meCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">tranportalid</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">90000970</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">pg_alias</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">90000970</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">pg_name</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">hdfctraveltesting</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">tranportalpwd</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">password</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"mihpayid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"70000000688113"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DC"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name_on_card"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"net_amount_debit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"106.1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"offer_availed"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"offer_failure_reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"offer_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"offer_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"paisa_mecode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"paymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"58876806"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"payuMoneyId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"58876806"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"pg_TYPE"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HDFCPG"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"pg_ref_no"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6121212232"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"postBackParamId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"39803778"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"postUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://test.payumoney.com/customer/dashboard/#/payment/notification/success"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"productinfo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"productInfo"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sucess"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"txnid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"396132-58876806"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"udf1"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"udf10"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"udf2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"udf3"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"udf4"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"udf5"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"udf6"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"udf7"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"udf8"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"udf9"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"unmappedstatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"captured"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='check-merchant-transaction-status'>Check Merchant Transaction Status</h3>
+<p>This API can be used by a merchant to reconcile/get update status of the transaction(s) with PayUmoney.</p>
+
+<table><thead>
+<tr>
+<th>ID</th>
+<th>PARAM</th>
+<th>Description</th>
+<th>type</th>
+<th>mandatory</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>required_data</td>
+<td>Mandataory Details {&quot;ids&quot;: <merchant transaction ids>(list)}</td>
+<td>dict</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Sample Check Merchant Transaction</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="n">payment_Resp</span> <span class="o">=</span> <span class="n">payu</span><span class="p">.</span><span class="n">chkMerchantTxnStatus</span><span class="p">({</span><span class="s">"ids"</span><span class="p">:</span> <span class="p">[</span><span class="s">'172b0970-d073-11ea-8a7c-f0189853078a'</span><span class="p">,</span> <span class="s">'172b0970-d073-11ea-8a7c-f0189853078a'</span><span class="p">]})</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"All txnIds are valid"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"responseCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"106.1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"merchantTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"396132-58876806"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"paymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"58876806"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Money with Payumoney"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<aside class="warning"> Refund Related API only works in  lie </aside>
+<h3 id='refund-payment-api'>Refund Payment API</h3>
+<p>This API can be used by the merchant to initiate a partial or full refund for any successful transaction.</p>
+
+<table><thead>
+<tr>
+<th>ID</th>
+<th>PARAM</th>
+<th>Description</th>
+<th>type</th>
+<th>mandatory</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>required_data</td>
+<td>Mandataory Details {&quot;payu_id&quot;: <transaction id from payu>, &quot;amount&quot;: &lt;&gt;}</td>
+<td>dict</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Sample Refund Payment API</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code>    <span class="n">refund_amount</span> <span class="o">=</span> <span class="n">payu</span><span class="p">.</span><span class="n">refundPayment</span><span class="p">({</span><span class="s">'payu_id'</span><span class="p">:</span> <span class="mi">58872009</span><span class="p">,</span> <span class="s">'amount'</span><span class="p">:</span> <span class="mi">5</span><span class="p">})</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"guid"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Refund Initiated"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"190651"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"rows"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"sessionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='get-refund-details-by-refund-id'>Get Refund Details by Refund Id</h3>
+<p>This API returns all the refund details of a particular refund done using the Refund API or the Payumoney panel.</p>
+
+<table><thead>
+<tr>
+<th>ID</th>
+<th>PARAM</th>
+<th>Description</th>
+<th>type</th>
+<th>mandatory</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>required_data</td>
+<td>Mandataory Details {&quot;refund_id&quot;: <response from refund api></td>
+<td>dict</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Sample Get Refund Details by Refund Id</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code>    <span class="n">rrefund_details_1</span> <span class="o">=</span> <span class="n">payu</span><span class="p">.</span><span class="n">getRefundDetails</span><span class="p">({</span><span class="s">'refund_id'</span><span class="p">:</span> <span class="mi">190783</span><span class="p">})</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"guid"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Refund Details :"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"58876807"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Refund Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Refund Completed On"</span><span class="p">:</span><span class="w"> </span><span class="s2">"null"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Refund Created On"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-26T15:59:51.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Refund Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"refundinprogress"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"RefundId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"190783"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Total Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.06"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"rows"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"sessionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='get-refund-details-by-payment-id'>Get Refund Details by Payment Id</h3>
+<p>This API returns details of all refunds for a payment done through Payumoney.</p>
+
+<table><thead>
+<tr>
+<th>ID</th>
+<th>PARAM</th>
+<th>Description</th>
+<th>type</th>
+<th>mandatory</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>required_data</td>
+<td>Mandataory Details {&quot;payu_id&quot;: <transaction id from payu></td>
+<td>dict</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Sample Get Refund Details by Payment Id</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code>    <span class="n">rrefund_details</span> <span class="o">=</span> <span class="n">payu</span><span class="p">.</span><span class="n">getRefundDetailsByPayment</span><span class="p">({</span><span class="s">'payu_id'</span><span class="p">:</span> <span class="mi">190783</span><span class="p">})</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"guid"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Refund Details :"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"58876807"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Amount Left"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1266.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Refund Details Map"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[{RefundId=190783, Refund Amount=10.0, Refund Completed On=null, Refund Status=refundinprogress, Refund Created On=2017-04-26 15:59:51.0}]"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Total Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1276.0"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"rows"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"sessionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='note'>Note</h3>
 <ul>
 <li>Paywix is not storing any data into Table</li>
 <li>Make sure the Transaction Data is stored into Table before making transaction.</li>
