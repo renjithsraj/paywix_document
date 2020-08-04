@@ -286,12 +286,236 @@ def payu_failure(request):
      {"return_data": {"isConsentPayment": "0", "mihpayid": "250403759", "mode": "", "status": "failure", "unmappedstatus": "userCancelled", "key": "3o6jgxhp", "txnid": "tmk f23b118be0500854f90d", "amount": "10.00", "addedon": "2020-07-27 14:00:40", "productinfo": "test", "firstname": "renjith", "lastname": "", "address1": "dsf", "address2": "fsdf", "city": "sdf", "state": "", "country": "", "zipcode": "342341", "email": "renjith", "phone": "9746272610", "udf1": "", "udf2": "", "udf3": "", "udf4": "", "udf5": "", "udf6": "", "udf7": "", "udf8": "", "udf9": "", "udf10": "", "hash": "cdb80b5e3973fb048782152aa8b5a5fd9d58915578fec92cbd55780bc36821fb90f7741a251c01724903ea7ccc3c5fa3f5b16d4aa4255c62f3d4da707d357265", "field1": "", "field2": "", "field3": "", "field4": "", "field5": "", "field6": "", "field7": "", "field8": "", "field9": "Cancelled by user", "PG_TYPE": "PAISA", "bank_ref_num": "250403759", "bankcode": "PAYUW", "error": "E000", "error_Message": "No Error", "payuMoneyId": "250403759"}, "hash_string": "67bAgZX1B3|failure|||||||||||renjith|renjith|test|10.00|tmk f23b118be0500854f90d|3o6jgxhp", "generated_hash": "cdb80b5e3973fb048782152aa8b5a5fd9d58915578fec92cbd55780bc36821fb90f7741a251c01724903ea7ccc3c5fa3f5b16d4aa4255c62f3d4da707d357265", "recived_hash": "cdb80b5e3973fb048782152aa8b5a5fd9d58915578fec92cbd55780bc36821fb90f7741a251c01724903ea7ccc3c5fa3f5b16d4aa4255c62f3d4da707d357265", "hash_verified": true}
 
 ```
+### API Reference 
 
+If you want to use API services for the Payu, you have to include the `auth_header` in the `Payu(auth_header="")` class, default value is `None`, 
+
+### Get Payment Response
+
+This API can be used by the merchant to get the response details of the transaction(s) done using PayUmoney.
+
+ID | PARAM | Description | type | mandatory|
+---|-------|-------------|------|----------|
+1 | required_data  | Mandataory Details {"ids": <merchant transaction ids>(list)}| dict | Yes
+2 | optionals | optionals data `{"from_date":, "to_date":, "count":}`| dict | No
+
+> Sample for Getpayment response function
+
+```python
+payment_Resp = payu.getPaymentResponse({"ids": ['172b0970-d073-11ea-8a7c-f0189853078a']})
+```
+> Response
+
+```json
+{
+  "errorCode": "",
+  "message": "All txnIds are valid",
+  "responseCode": "",
+  "result": [
+    {
+      "merchantTransactionId": "396132-58876806",
+      "postBackParam": {
+        "addedon": "2017-04-26T15:22:05.000Z",
+        "additionalCharges": "6.1",
+        "additional_param": "",
+        "address1": "",
+        "address2": "",
+        "amount": "100.0",
+        "amount_split": "{\"PAYU\":\"106.1\"}",
+        "bank_ref_num": "1182885976",
+        "bankcode": "MAST",
+        "calledStatus": "false",
+        "cardToken": "",
+        "card_merchant_param": "",
+        "card_type": "",
+        "cardhash": "This field is no longer supported in postback params.",
+        "cardnum": "500446XXXXXX0000",
+        "city": "",
+        "country": "",
+        "createdOn": "1493200111000",
+        "discount": "0.00",
+        "email": "test@email.com",
+        "encryptedPaymentId": "",
+        "error": "E000",
+        "error_Message": "No Error",
+        "fetchAPI": "",
+        "field1": "",
+        "field2": "",
+        "field3": "",
+        "field4": "",
+        "field5": "",
+        "field6": "",
+        "field7": "",
+        "field8": "",
+        "field9": "",
+        "firstname": "Tom Jude",
+        "hash": "9a5e632d332c11eb74f8a76ba3dcccd0548f1f26a73bc2541f85198a3cf0eb948ad8caff6b0921ae9a11aa7648c70f0a87ac29d09790ba2f1c31d48823ba9a85",
+        "key": "40747T",
+        "lastname": "",
+        "meCode": "{\"tranportalid\":\"90000970\",\"pg_alias\":\"90000970\",\"pg_name\":\"hdfctraveltesting\",\"tranportalpwd\":\"password\"}",
+        "mihpayid": "70000000688113",
+        "mode": "DC",
+        "name_on_card": "Tom",
+        "net_amount_debit": "106.1",
+        "offer_availed": "",
+        "offer_failure_reason": "",
+        "offer_key": "",
+        "offer_type": "",
+        "paisa_mecode": "",
+        "paymentId": "58876806",
+        "payuMoneyId": "58876806",
+        "pg_TYPE": "HDFCPG",
+        "pg_ref_no": "",
+        "phone": "6121212232",
+        "postBackParamId": "39803778",
+        "postUrl": "https://test.payumoney.com/customer/dashboard/#/payment/notification/success",
+        "productinfo": "productInfo",
+        "state": "",
+        "status": "sucess",
+        "txnid": "396132-58876806",
+        "udf1": "",
+        "udf10": "",
+        "udf2": "",
+        "udf3": "",
+        "udf4": "",
+        "udf5": "",
+        "udf6": "",
+        "udf7": "",
+        "udf8": "",
+        "udf9": "",
+        "unmappedstatus": "captured",
+        "version": "",
+        "zipcode": ""
+      }
+    }
+  ],
+  "status": "0"
+}
+``` 
+
+### Check Merchant Transaction Status
+
+This API can be used by a merchant to reconcile/get update status of the transaction(s) with PayUmoney.
+
+
+ID | PARAM | Description | type | mandatory|
+---|-------|-------------|------|----------|
+1 | required_data  | Mandataory Details {"ids": <merchant transaction ids>(list)}| dict | Yes
+
+> Sample Check Merchant Transaction
+
+```python
+payment_Resp = payu.chkMerchantTxnStatus({"ids": ['172b0970-d073-11ea-8a7c-f0189853078a', '172b0970-d073-11ea-8a7c-f0189853078a']})
+```
+```json
+{
+  "errorCode": "",
+  "message": "All txnIds are valid",
+  "responseCode": "",
+  "result": {
+    "amount": "106.1",
+    "merchantTransactionId": "396132-58876806",
+    "paymentId": "58876806",
+    "status": "Money with Payumoney"
+  },
+  "status": "0"
+}
+```
+
+<aside class="warning"> Refund Related API only works in  lie </aside>
+
+
+### Refund Payment API
+This API can be used by the merchant to initiate a partial or full refund for any successful transaction.
+
+
+ID | PARAM | Description | type | mandatory|
+---|-------|-------------|------|----------|
+1 | required_data  | Mandataory Details {"payu_id": <transaction id from payu>, "amount": <>}| dict | Yes
+
+> Sample Refund Payment API
+
+```python
+    refund_amount = payu.refundPayment({'payu_id': 58872009, 'amount': 5})
+```
+```json
+{
+  "errorCode": "",
+  "guid": "",
+  "message": "Refund Initiated",
+  "result": "190651",
+  "rows": "0",
+  "sessionId": "",
+  "status": "0"
+}
+```
+
+### Get Refund Details by Refund Id
+
+This API returns all the refund details of a particular refund done using the Refund API or the Payumoney panel.
+
+ID | PARAM | Description | type | mandatory|
+---|-------|-------------|------|----------|
+1 | required_data  | Mandataory Details {"refund_id": <response from refund api>| dict | Yes
+
+> Sample Get Refund Details by Refund Id
+
+```python
+    rrefund_details_1 = payu.getRefundDetails({'refund_id': 190783})
+```
+```json
+{
+  "errorCode": "",
+  "guid": "",
+  "message": "Refund Details :",
+  "result": {
+    "PaymentId": "58876807",
+    "Refund Amount": "1.0",
+    "Refund Completed On": "null",
+    "Refund Created On": "2017-04-26T15:59:51.000Z",
+    "Refund Status": "refundinprogress",
+    "RefundId": "190783",
+    "Total Amount": "1.06"
+  },
+  "rows": "0",
+  "sessionId": "",
+  "status": "0"
+}
+```
+
+### Get Refund Details by Payment Id
+
+This API returns details of all refunds for a payment done through Payumoney.
+
+
+ID | PARAM | Description | type | mandatory|
+---|-------|-------------|------|----------|
+1 | required_data  | Mandataory Details {"payu_id": <transaction id from payu>| dict | Yes
+
+>  Sample Get Refund Details by Payment Id
+
+```python
+    rrefund_details = payu.getRefundDetailsByPayment({'payu_id': 190783})
+
+```
+```json
+{
+  "errorCode": "",
+  "guid": "",
+  "message": "Refund Details :",
+  "result": {
+    "PaymentId": "58876807",
+    "Amount Left": "1266.0",
+    "Refund Details Map": "[{RefundId=190783, Refund Amount=10.0, Refund Completed On=null, Refund Status=refundinprogress, Refund Created On=2017-04-26 15:59:51.0}]",
+    "Total Amount": "1276.0"
+  },
+  "rows": "0",
+  "sessionId": "",
+  "status": "0"
+}
+```
 ### Note
 
 + Paywix is not storing any data into Table
 + Make sure the Transaction Data is stored into Table before making transaction.
 + When the transaction got sucees/faild, make sure that the data also stored in somewhere in db
-
-
-
