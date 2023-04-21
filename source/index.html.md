@@ -257,8 +257,8 @@ def payu_failure(request):
    data = {
      'amount': '10', 
      'firstname': 'renjith', 
-     'email': 'renjithsraj@gmail.com',
-     'phone': '9746272610', 'productinfo': 'test', 
+     'email': '',
+     'phone': '', 'productinfo': 'test', 
      'lastname': 'test', 'address1': 'test', 
      'address2': 'test', 'city': 'test', 
      'state': 'test', 'country': 'test', 
