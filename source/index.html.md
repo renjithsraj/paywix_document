@@ -175,8 +175,8 @@ def payu_checkout(request):
         # The dictionary data  should be contains following details
         # data = { 'amount': '10', 
         #     'firstname': 'renjith', 
-        #     'email': 'renjithsraj@gmail.com',
-        #     'phone': '9746272610', 'productinfo': 'test', 
+        #     'email': '',
+        #     'phone': '', 'productinfo': 'test', 
         #     'lastname': 'test', 'address1': 'test', 
         #     'address2': 'test', 'city': 'test', 
         #     'state': 'test', 'country': 'test', 
